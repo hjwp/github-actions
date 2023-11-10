@@ -11,16 +11,16 @@ inputs:
 runs:
   using: "composite"
 
-  env:
-    MOZ_HEADLESS: 1
-    LC_ALL: en_GB.UTF-8
-    LANG: en_GB.UTF8
-    LANGUAGE: "en_GB:en"
+  # env:
+  #   MOZ_HEADLESS: 1
+  #   LC_ALL: en_GB.UTF-8
+  #   LANG: en_GB.UTF8
+  #   LANGUAGE: "en_GB:en"
 
   steps:
-    - uses: actions/checkout@v3
 
     - name: checkout submodules
+      uses: actions/checkout@v3
       run: |
         sed -i 's_git@github.com:_https://github.com/_' .gitmodules
         git submodule update --init --recursive
