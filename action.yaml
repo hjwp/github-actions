@@ -1,14 +1,12 @@
 name: 'Prep for book tests'
 description: 'install dependencies for tdd book tests'
-  # inputs:
-  #   who-to-greet:  # id of input
-  #     description: 'Who to greet'
-  #     required: true
-  #     default: 'World'
-  # outputs:
-  #   random-number:
-  #     description: "Random number"
-  #     value: ${{ steps.random-number-generator.outputs.random-number }}
+inputs:
+  chapter_test:  # id of input
+    required: true
+# outputs:
+#   random-number:
+#     description: "Random number"
+#     value: ${{ steps.random-number-generator.outputs.random-number }}
 runs:
   using: "composite"
     runs-on: ubuntu-latest
@@ -60,3 +58,6 @@ runs:
         locale
         env
 
+    - name: Run chapter test
+      run: |
+        make  ${{ inputs.chapter_test }}
