@@ -2,7 +2,7 @@
 name: 'Prep for book tests'
 description: 'install dependencies for tdd book tests'
 inputs:
-  chapter_test:  # id of input
+  test_chapter:  # id of input
     required: true
 # outputs:
 #   random-number:
@@ -73,4 +73,4 @@ runs:
     - name: Run chapter test
       shell: bash
       run: |
-        make  ${{ inputs.chapter_test }}
+        make  ${{ inputs.test_chapter }}
