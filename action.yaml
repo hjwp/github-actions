@@ -8,6 +8,11 @@ inputs:
 #   random-number:
 #     description: "Random number"
 #     value: ${{ steps.random-number-generator.outputs.random-number }}
+
+defaults:
+  run:
+    shell: bash
+
 runs:
   using: "composite"
 
