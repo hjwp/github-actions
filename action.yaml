@@ -18,9 +18,9 @@ runs:
   #   LANGUAGE: "en_GB:en"
 
   steps:
+    - uses: actions/checkout@v3
 
     - name: checkout submodules
-      uses: actions/checkout@v3
       run: |
         sed -i 's_git@github.com:_https://github.com/_' .gitmodules
         git submodule update --init --recursive
