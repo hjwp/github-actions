@@ -64,3 +64,11 @@ runs:
       shell: bash
       run: |
         make  ${{ inputs.test_chapter }}
+
+    - name: Archite the built html files
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: built-html
+        path: |
+          *.html
