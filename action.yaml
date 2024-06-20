@@ -73,3 +73,4 @@ runs:
         name: built-html-${{ inputs.test_chapter }}
         path: |
           *.html
+          *.css
