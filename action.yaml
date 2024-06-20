@@ -48,11 +48,17 @@ runs:
           tree \
           locales
         sudo locale-gen en_GB.UTF-8
+        pip install uv
+
+    - name: hack to convince uv that it's in a virtualenv
+      shell: bash
+      run: echo "VIRTUAL_ENV=${Python_ROOT_DIR}" >> $GITHUB_ENV
 
     - name: Install Python requirements.txt
       shell: bash
       run: |
-        pip install .
+        uv venv
+        uv pip install .
 
     - name: Check environment
       shell: bash
